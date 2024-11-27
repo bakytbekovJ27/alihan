@@ -7,7 +7,7 @@ export default function Footer() {
 		return (
 			<div id="footer" className="container-fluid text-center py-5">
 				<div className="container">
-					<h5 className="pt-4">Alihan and ChatGPT 4.o &copy; {year}</h5>
+					<h5 className="pt-4">Alihan &copy; {year}</h5>
 				</div>
 			</div>
 		);
