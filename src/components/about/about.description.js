@@ -1,8 +1,8 @@
 import React from "react";
 
-import myImage from "../../img/myImage.png";
+import myImage from "../../img/me.jpg";
 
-//import skillBars
+
 import SkillBars from "./about.description.skillBars";
 
 export default function AboutDescription(props) {
@@ -15,14 +15,12 @@ export default function AboutDescription(props) {
                     alt="Portfolio Image"
                     style={{
                         borderRadius: 50 + "%",
-                        height: 250 + "px",
-                        width: 250 + "px"
+                        height: 350 + "px",
+                        width: 350 + "px"
                     }}
                 />
                 <p className="mytext pt-3">
-                    I love to transform ideas into reality using code. I
-                    am passionate about using Javascript and animations
-                    to create awesome user experiences.
+                my name is Alikhan I am 17 years old I study at Salymbekov IT and Business College
                 </p>
             </div>
 

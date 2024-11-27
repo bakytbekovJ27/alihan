@@ -1,56 +1,23 @@
 import React from "react";
+import inst from "../../img/inst.jpeg";
+import what from "../../img/whatapp.jpeg";
+import tg from "../../img/telegram.png";
 
 export default function ContactForm() {
-    return(
-        <form className="wow pulse" action="https://formspree.io/example@email.com" method="POST">
-            <div className="form-group">
-                <div className="row">
-                    <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                        <input
-                            type="text"
-                            name="name"
-                            className="form-control form-control-lg"
-                            id="name"
-                            placeholder="Name"
-                        />
-                    </div>
-                </div>
+    return (
+        <div className="contact-container">
+            <h2>Contact Us</h2>
+            <div className="contact-icons">
+                <a href="https://www.instagram.com/Alioohan" target="_blank" rel="noopener noreferrer">
+                    <img src={inst} alt="Instagram" className="contact-icon" height={50} width={50}/>
+                </a>
+                <a href="https://wa.me/996508245555" target="_blank" rel="noopener noreferrer">
+                    <img src={what} alt="WhatsApp" className="contact-icon" height={50} width={50}/>
+                </a>
+                <a href="https://t.me/Alioohan" target="_blank" rel="noopener noreferrer">
+                    <img src={tg} alt="Telegram" className="contact-icon" height={50} width={50}/>
+                </a>
             </div>
-            <div className="form-group hidden">
-                <div className="row">
-                    <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                        <input
-                            type="email"
-                            name="_replyto"
-                            className="form-control form-control-lg"
-                            id="exampleFormControlInput1"
-                            placeholder="Your email"
-                        />
-                    </div>
-                </div>
-            </div>
-            <div className="form-group hiddenRight">
-                <div className="row">
-                    <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                        <textarea
-                            name="message"
-                            className="form-control form-control-lg"
-                            id="exampleFormControlTextarea1"
-                            rows="3"
-                            placeholder="Write your message..."
-                        />
-                    </div>
-                </div>
-            </div>
-            <div className="row text-md-right text-sm-center">
-                <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                    <button
-                        type="submit"
-                        className="btn btn-primary mb-2 hidden">
-                        Submit
-                    </button>
-                </div>
-            </div>
-        </form>
-    )
+        </div>
+    );
 }

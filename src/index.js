@@ -11,11 +11,9 @@ import About from './views/about';
 import Projects from './views/projects';
 import ContactMe from './views/contact';
 
-//import 'bootstrap/dist/css/bootstrap.css';
 import "./styles/index.scss";
 
 
-//new import for react 18+ using createRoot
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

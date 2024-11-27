@@ -1,65 +1,48 @@
-import React, { useState } from 'react';
+import React from "react";
+import PropTypes from "prop-types";
+import telegram from "../../img/тг.jpg";
+import project from "../../img/project.png";
+import portfolio from "../../img/portfolio.jpeg";
 
-
-//import images
-import Vmarine from "../../img/Vmarine.jpg";
-import aguaDeLuz from "../../img/aguaDeLuz.png";
-import todo from "../../img/todolist.png";
-
-export default function ProjectList() {
-
-    const [projects] = useState([
+export default function ProjectList({ onShowModal }) {
+    const projects = [
         {
-            name: "vmarine",
-            image: Vmarine,
-            button: "vmarine"
+            name: "Telegram Bot",
+            image: telegram,
+            button: "Telegram",
         },
         {
-            name: "agualuz",
-            image: aguaDeLuz,
-            button: "agua"
+            name: "WebSite",
+            image: project,
+            button: "Web",
         },
         {
-            name: "todolist",
-            image: todo,
-            button: "todo"
-        }
-    ]);
-
-
-    function showModal(name) {
-        const modalBG = document.getElementById("gallery-card");
-        const modal = document.getElementById(name);
-        modalBG.style.display = "block";
-        modal.style.display = "block";
-    }
-
-    function addbackground(image) {
-        const style = {
-            backgroundImage: `url(${image})`
-            }
-        return style;
-    }
+            name: "Portfolio Website",
+            image: portfolio,
+            button: "Portfolio",
+        },
+    ];
 
     return (
         <div className="row my-5">
-            {
-                projects.map((project, index) => {
-                return(
-                    <div className={"testbg col-12 col-sm-12 col-md-4 wow fadeIn"} key={index} style={addbackground(project.image)}>
-                        <div className="overlay">
-                            <div className="text">
-                                <h2>{project.name}</h2>
-                            </div>
-                            <div>
-                                <button id={project.button + "-button"} className="project-button" onClick={() => showModal(project.name)}>
-                                    Learn More
-                                </button>
-                            </div>
+            {projects.map((project, index) => (
+                <div className="testbg col-12 col-sm-12 col-md-4" key={index} style={{ backgroundImage: `url(${project.image})` }}>
+                    <div className="overlay">
+                        <div className="text">
+                            <h2>{project.name}</h2>
+                        </div>
+                        <div>
+                            <button className="project-button" onClick={() => onShowModal(project.name)}>
+                                Learn More
+                            </button>
                         </div>
                     </div>
-                )})
-            }
+                </div>
+            ))}
         </div>
     );
 }
+
+ProjectList.propTypes = {
+    onShowModal: PropTypes.func.isRequired,
+};

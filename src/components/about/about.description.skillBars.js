@@ -14,31 +14,15 @@ export default function SkillBars() {
         },
         {
             name: "Javascript",
-            percentage: 90
-        },
-        {
-            name: "PHP",
             percentage: 60
         },
         {
             name: "ReactJS",
-            percentage: 90
+            percentage: 20
         },
         {
-            name: "NodeJS",
-            percentage: 60
-        },
-        {
-            name: "SASS",
-            percentage: 60
-        },
-        {
-            name: "VanillaJS",
-            percentage: 80
-        },
-        {
-            name: "JQuery",
-            percentage: 70
+            name: "Python",
+            percentage: 55
         },
     ]);
 

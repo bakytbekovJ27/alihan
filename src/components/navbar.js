@@ -1,11 +1,6 @@
 import React, {useEffect} from "react";
-
-
-//import hooks
 import SmoothScrollTo from "../hooks/smoothScrollTo";
 
-
-import WOW from "wowjs";
 
 export default function Navbar() {
 
@@ -31,7 +26,7 @@ export default function Navbar() {
 				id="navbar"
 				className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container">
-					<a
+					<a href="/."
 						className="home-style navbar-brand"
 						onClick={() => {
 							window.scrollTo({
@@ -55,9 +50,9 @@ export default function Navbar() {
 						className="collapse navbar-collapse"
 						id="navbarNavAltMarkup">
 						<div className="navbar-nav">
-							<a onClick={() => SmoothScrollTo("about-container")} className="btn-style nav-item nav-link">About</a>
-							<a onClick={() => SmoothScrollTo("my-projects")}className="btn-style nav-item nav-link">Projects</a>
-							<a onClick={() => SmoothScrollTo("my-contact")}className="btn-style nav-item nav-link">Contact</a>
+							<a onClick={() => SmoothScrollTo("about-container")} className="btn-style nav-item nav-link" href="#about">About</a>
+							<a onClick={() => SmoothScrollTo("my-projects")}className="btn-style nav-item nav-link" href="#project">Projects</a>
+							<a onClick={() => SmoothScrollTo("my-contact")}className="btn-style nav-item nav-link" href="#contact">Contact</a>
 						</div>
 					</div>
 				</div>

@@ -1,33 +1,33 @@
 import React, {useState} from "react";
 
 //import logo-images
-import layers from "../../img/layers.png";
-import cogwheel from "../../img/cogwheel.png";
-import pen from "../../img/pen.png";
-import browser from "../../img/browser.png";
+import html from "../../img/html5.png";
+import js from "../../img/js.jpeg";
+import python from "../../img/python.png";
+import react from "../../img/react.png";
 
 
 export default function AboutLogos() {
-    const [skils, setSkills] = useState([
+    const [skils] = useState([
         {
-            type: "Responsive",
+            type: "HTML",
             animation: "wow fadeInLeft",
-            logo: layers   
+            logo: html   
         },
         {
-            type: "Design",
+            type: "JavaScript",
             animation: "wow fadeInLeft",
-            logo: cogwheel   
+            logo: js   
         },
         {
-            type: "Performance",
+            type: "Python",
             animation: "wow fadeInRight",
-            logo: pen   
+            logo: python 
         },
         {
-            type: "Agile",
+            type: "React",
             animation: "wow fadeInRight",
-            logo: browser   
+            logo: react   
         }
     ]);
 
@@ -37,7 +37,7 @@ export default function AboutLogos() {
             skils.map((skill, index) => {
                 return (
                     <div className={"col-6 col-sm-6 col-md-3 " + skill.animation} key={index}>
-                        <img src={skill.logo} alt=""/>
+                        <img src={skill.logo} alt="" height={80} width={80}/>
                         <h4>{skill.type}</h4>
                     </div>
                 );

@@ -1,92 +1,67 @@
-import React, {useState} from "react";
+import React from "react";
+import PropTypes from "prop-types";
+import telegram from "../../img/тг.jpg"; // Импорты такие же, как в ProjectList
+import project from "../../img/project.png";
+import portfolio from "../../img/portfolio.jpeg";
 
-//import images
-import Vmarine from "../../img/Vmarine.jpg";
-import aguaDeLuz from "../../img/aguaDeLuz.png";
-import todo from "../../img/todolist.png";
-
-
-
-import HiddenModalDescription from "./hiddenModals.description";
-
-export default function HiddenModals() {
-
-    const [projects, setProjects] = useState([
+export default function HiddenModals({ visibleModal, onHideModal }) {
+    const projects = [
         {
-            name: "vmarine",
-            image: Vmarine,
-            status: "View Live Demo",
-            ref:"./",
+            name: "Telegram Bot",
+            image: telegram, 
+            ref: "./",
             description: [
-                "Prototype marine web-application to provide information about progress of services and prices.",
-                "Designed with HTML5, CSS3, Bootstrap, Webpack, Wordpress, and ReactJS.",
-                "ba;lasdjkpasj kl;djaslkjdl kasl;d l;asd ."
-            ]
+                "Telegram bot for sending schedules is a convenient tool that automatically notifies users about the time of classes, meetings or other events.",
+            ],
         },
         {
-            name: "agualuz",
-            image: aguaDeLuz,
-            status: "View Live Demo",
-            ref: "./AguaDeLuz/index.html",
+            name: "WebSite",
+            image: project, 
+            ref: "./",
             description: [
-                "Marine web-application to provide information about progress of services and prices.",
-                "Designed with HTML5, CSS3, Bootstrap, Webpack, Wordpress, and ReactJS."
-            ]
+                "Creating a website for Genshin Impact fans is an ideal way to unite players, share useful information and create a community of like-minded people.",
+            ],
         },
         {
-            name: "todolist",
-            image: todo,
-            status: "View Live Demo",
-            ref: "./todoList/index.html",
+            name: "Portfolio Website",
+            image: portfolio, 
+            ref: "./portfolio",
             description: [
-                "YEAHHHH lication to provide information about progress of services and prices.",
-                "Designed with HTML5, CSS3, Bootstrap, Webpack, Wordpress, and ReactJS."
-            ]
-        }
-    ]);
+                "A personal portfolio website showcasing my projects, skills, and experience.",
+            ],
+        },
+    ];
 
-
-    function hiddeModal(name) {
-        const modalBG = document.getElementById("gallery-card");
-        const modal = document.getElementById(name);
-        modalBG.style.display = "none";
-        modal.style.display = "none";
-    }
-
-    const style = {
-        textAlign: "right",
-        fontWeight: 900,
-        fontSize: 2 + "rem",
-        cursor: "pointer"
-    }
-
-
-    return(
-		<div id="gallery-card">
-        {
-            projects.map((project, index) => {
-            return (
-                <div id={project.name} className="modal-card" key={index}>
-                    <div className="visual">
-                        <img src={project.image} alt=""/>
-                    </div>
-
-                    <div className="modal-info">
-                        <h2>{project.name}</h2>
-
-                        <HiddenModalDescription description={project.description} />
-
-                        <div className="modal-bottom">
-                            <a href={project.ref} target="_blank">
-                                <h3>{project.status}</h3>
-                            </a>
-                            <p className="close-icon" style={style} onClick={() => hiddeModal(project.name)}>&#10005;</p>
+    return (
+        <div id="gallery-card">
+            {projects.map((project, index) => (
+                visibleModal === project.name && (
+                    <div id={project.name} className="modal-card" key={index}>
+                        <div className="visual">
+                            <img src={project.image} alt={project.name} />
                         </div>
-
+                        <div className="modal-info">
+                            <h2>{project.name}</h2>
+                            <ul>
+                                {project.description.map((desc, i) => <li key={i}>{desc}</li>)}
+                            </ul>
+                            <div className="modal-bottom">
+                                <a href={project.ref} target="_blank" rel="noopener noreferrer">
+                                    <h3>View Project</h3>
+                                </a>
+                                <p className="close-icon" onClick={onHideModal}>
+                                    &#10005;
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            );})
-        }
+                )
+            ))}
         </div>
     );
 }
+
+HiddenModals.propTypes = {
+    visibleModal: PropTypes.string,
+    onHideModal: PropTypes.func.isRequired,
+};
